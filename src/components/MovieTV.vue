@@ -55,12 +55,11 @@ export default {
 
     img {
         width: 100%;
-
     }
 
     .card-body {
         position: absolute;
-
+        opacity: 0;
 
         .card-text {
             font-size: .8rem;
@@ -69,7 +68,7 @@ export default {
         span {}
 
         &:hover {
-            visibility: visible;
+            opacity: 1;
             top: 0px;
             bottom: 0px;
             right: 0px;

@@ -29,7 +29,7 @@ export default {
 
             <!-- movie -->
             <div v-if="this.store.arrayMovies.length">
-                <h2 class="title">Movie</h2>
+                <h2 class="title"><em>Movie</em></h2>
                 <div class="d-flex flex-wrap gap-1 m-1">
                     <MovieTV v-for="( item, index ) in  store.arrayMovies " :key="index" :propsMovie="item">
                     </MovieTV>
@@ -37,7 +37,7 @@ export default {
             </div>
             <!-- serieTV -->
             <div v-if="this.store.arraySerieTV.length">
-                <h2 class="title">Serie</h2>
+                <h2 class="title"><em>Serie</em></h2>
                 <div class="d-flex flex-wrap gap-1 m-1">
                     <SerieTVVue v-for="(item, index) in store.arraySerieTV" :key="index" :propsSeriesTV="item"></SerieTVVue>
                 </div>
@@ -56,6 +56,6 @@ export default {
 </template>
 <style lang="scss" scoped>
 .title {
-    color: red;
+    color: rgb(192, 19, 19);
 }
 </style>

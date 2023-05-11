@@ -53,13 +53,14 @@ export default {
 
     .card-body {
         position: absolute;
+        opacity: 0;
 
         .card-text {
-            font-size: .8rem;
+            font-size: .4rem;
         }
 
         &:hover {
-            visibility: visible;
+            opacity: 1;
             top: 0px;
             bottom: 0px;
             right: 0px;
@@ -68,6 +69,9 @@ export default {
             background-color: rgba(32, 31, 31, 0.949);
         }
 
+        i {
+            font-size: 10px;
+        }
     }
 
 }
