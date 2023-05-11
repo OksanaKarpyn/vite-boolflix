@@ -6,6 +6,12 @@
     box-sizing: border-box;
 }
 .wrapper{
-    background-color: rgb(48, 46, 46);
+    min-height: 100vh;
+    // background-color: rgb(48, 46, 46);
+    background: rgb(10,0,1);
+background: -moz-linear-gradient(7deg, rgba(10,0,1,1) 30%, rgba(119,2,2,1) 100%, rgb(121, 8, 8) 100%, rgba(252,176,69,1) 100%);
+background: -webkit-linear-gradient(7deg, rgba(10,0,1,1) 30%, rgba(119,2,2,1) 100%, rgb(63, 14, 14) 100%, rgba(252,176,69,1) 100%);
+background: linear-gradient(7deg, rgba(10,0,1,1) 30%, rgba(119,2,2,1) 100%, rgb(126, 10, 10) 100%, rgba(252,176,69,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0a0001",endColorstr="#fcb045",GradientType=1);
     
 }

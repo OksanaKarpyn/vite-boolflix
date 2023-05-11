@@ -35,7 +35,8 @@ header {
         flex-grow: 1;
 
         h1 {
-            color: red
+            color: red;
+
         }
     }
 

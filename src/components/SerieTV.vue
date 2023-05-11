@@ -9,7 +9,23 @@ export default {
         }
     },
     created() {
-
+    },
+    methods: {
+        // bandiere
+        flag(e) {
+            e = e.toUpperCase()
+            if (e == 'EN') {
+                e = 'GB'
+                return `https://flagsapi.com/${e}/flat/64.png`
+            } else {
+                return `https://flagsapi.com/${e}/flat/64.png`
+            }
+        },
+        // stelle
+        star() {
+            // contero numero intero divido in 2
+            return Math.ceil(this.propsSeriesTV.vote_average / 2)
+        }
     }
 
 }
@@ -20,14 +36,14 @@ export default {
         <img :src="`https://image.tmdb.org/t/p/w342/` + propsSeriesTV.poster_path" class="card-img-top"
             :alt="propsSeriesTV.original_name">
         <div class="card-body">
-            <p class="card-text">{{ propsSeriesTV.name }}</p>
-            <p class="card-text">{{ propsSeriesTV.vote_average }}</p>
-            <img v-if="propsSeriesTV.original_language == 'en'" src="https://flagsapi.com/GB/flat/64.png"
-                style="width: 30px;">
-            <img v-else-if="propsSeriesTV.original_language == 'fr'" src="https://flagsapi.com/FR/flat/64.png"
-                style="width: 30px;">
+            <p class="card-text mb-0">{{ propsSeriesTV.name }}</p>
+            <p class="card-text mb-0">{{ star() }}</p>
+            <img :src="flag(propsSeriesTV.original_language)" style="width: 30px;">
             <!-- <span>{{ propsSeriesTV.original_language }}</span> -->
-
+            <div>
+                <!-- v-for * 5  :class dinamico condizione -->
+                <i v-for="n in 5" class="fa-star" :class="(n <= star()) ? 'fa-solid text-warning' : 'fa-regular'"></i>
+            </div>
         </div>
     </div>
 </template>
@@ -35,20 +51,12 @@ export default {
 .card {
     position: relative;
 
-    img {
-        width: 100%;
-        height: 100%;
-
-
-    }
-
     .card-body {
         position: absolute;
 
-
-        .card-text {}
-
-        span {}
+        .card-text {
+            font-size: .8rem;
+        }
 
         &:hover {
             visibility: visible;
@@ -59,6 +67,7 @@ export default {
             color: #ffffff;
             background-color: rgba(32, 31, 31, 0.949);
         }
+
     }
 
 }

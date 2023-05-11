@@ -10,6 +10,24 @@ export default {
     },
     created() {
 
+    },
+    methods: {
+        // bandiera
+        flaf(e) {
+            // this.propsMovie.original_language
+            e = e.toUpperCase()
+            if (e == 'EN') {
+                e = 'BG'
+                return `https://flagsapi.com/${e}/flat/64.png`;
+            } else {
+                return `https://flagsapi.com/${e}/flat/64.png`;
+            }
+        },
+        // stelle
+        star(x) {
+            return Math.ceil(x / 2)
+        }
+
     }
 
 }
@@ -21,36 +39,32 @@ export default {
             :alt="propsMovie.title">
         <div class="card-body">
             <p class="card-text">{{ propsMovie.original_title }}</p>
-            <p class="card-text">{{ propsMovie.vote_average }}</p>
-            <img v-if="propsMovie.original_language == 'en'" src="https://flagsapi.com/GB/flat/64.png" style="width: 30px;">
-            <img v-else-if="propsMovie.original_language == 'fr'" src="https://flagsapi.com/FR/flat/64.png"
-                style="width: 30px;">
-            <img v-else-if="propsMovie.original_language == 'nl'" src="https://flagsapi.com/NL/flat/64.png"
-                style="width: 30px;">
-            <img v-else-if="propsMovie.original_language == 'en'" src="https://flagsapi.com/GB/flat/64.png"
-                style="width: 30px;">
-            <img v-else-if="propsMovie.original_language == 'it'" src="https://flagsapi.com/IT/flat/64.png"
-                style="width: 30px;">
-            <span class="card-text">{{ propsMovie.original_language }}</span>
-
+            <p class="card-text">{{ star(propsMovie.vote_average) }}</p>
+            <img :src="flaf(propsMovie.original_language)" style="width: 30px;">
+            <!-- <span class="card-text">{{ propsMovie.original_language }}</span> -->
+            <div>
+                <i v-for="n in 5" class="fa-star empty"
+                    :class="(n <= star(propsMovie.vote_average)) ? 'fa-solid text-warning' : 'fa-regular'"></i>
+            </div>
         </div>
     </div>
 </template>
 <style lang="scss" scoped>
 .card {
-    max-height: 100%;
     position: relative;
 
     img {
         width: 100%;
-        min-height: 200px;
+
     }
 
     .card-body {
         position: absolute;
 
 
-        .card-text {}
+        .card-text {
+            font-size: .8rem;
+        }
 
         span {}
 
